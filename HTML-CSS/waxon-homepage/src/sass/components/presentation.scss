@@ -1,0 +1,60 @@
+.presentation {
+  min-height: 705px;
+  background: #555556 url('../images/presentation_bg.png');
+  background-size: cover;
+  background-blend-mode: overlay;
+  display: flex;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__play-btn {
+    width: 100px;
+    height: 100px;
+    background: rgba($color: #000000, $alpha: 0.2) url('../images/play_btn.png');
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 44px;
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 552px;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-family: Raleway;
+    font-size: 30px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    font-family: Montserrat;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 300;
+    color: #ffffff;
+  }
+
+  &__timer {
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #c7b299;
+  }
+}

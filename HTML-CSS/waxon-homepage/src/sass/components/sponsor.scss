@@ -1,0 +1,15 @@
+.sponsor {
+  min-height: 489px;
+  background: rgba(17, 17, 17, .7) url('../images/sponsor_bg.png');
+  background-size: cover;
+  background-blend-mode: overlay;
+  display: flex;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

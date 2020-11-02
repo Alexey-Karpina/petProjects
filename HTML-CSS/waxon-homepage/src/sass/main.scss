@@ -1,0 +1,23 @@
+@import './helpers/variables.scss';
+@import './helpers/mixins.scss';
+@import 'normalize.scss';
+@import 'base.scss';
+
+
+//Components 
+
+@import './components/wrapper.scss';
+@import './components/header.scss';
+@import './components/navigation.scss';
+@import './components/slider.scss';
+@import './components/services.scss';
+@import './components/ideas.scss';
+@import './components/purchase.scss';
+@import './components/projects.scss';
+@import './components/presentation.scss';
+@import './components/mobile-dev.scss';
+@import './components/statistics.scss';
+@import './components/recent.scss';
+@import './components/sponsor.scss';
+@import './components/info.scss';
+@import './components/footer.scss';

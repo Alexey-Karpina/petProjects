@@ -1,0 +1,8 @@
+.page__header {
+  height: 1024px;
+  background: #555556 url('../images/photo.png');
+  background-size: cover;
+  background-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+}
