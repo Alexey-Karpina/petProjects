@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Header />
       </Container>
     </>
