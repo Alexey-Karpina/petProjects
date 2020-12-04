@@ -40,9 +40,9 @@ import {
   Link,
 } from "react-router-dom";
 
-import bgImg from "../../images/forestbridge.jpg";
+import CV from "../pages/cv/CV";
 
-// import Home from "../pages/home/Home";
+import Home from "../pages/home/Home";
 
 const drawerWidth = 340;
 
@@ -108,54 +108,14 @@ const useStyles = makeStyles((theme) => ({
   },
   homeBtn: {
     marginRight: "50px",
+    color: '#ffffff',
   },
   card: {
     maxWidth: 345,
   },
-  skillTitle: {
-    display: "flex",
-    alignItems: "center",
-  },
-  titleIcon: {
-    marginRight: "25px",
-  },
-  container: {
-    width: "100%",
-    backgroundColor: "#ddd",
-    borderRadius: "350px 350px 350px 350px",
-    boxShadow: "0px 0px 5px 0px rgba(50, 50, 50, 1)",
-  },
-  skillsItem: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-  },
-  skillEnglish: {
-    width: "60%",
-    textAlign: "center",
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    color: "white",
-    backgroundColor: "#2196F3",
-    borderRadius: "350px 350px 350px 350px",
-  },
-  skillUkrainian: {
-    width: "100%",
-    textAlign: "center",
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    color: "white",
-    backgroundColor: "#2196F3",
-    borderRadius: "350px 350px 350px 350px",
-  },
-  skillRussian: {
-    width: "100%",
-    textAlign: "center",
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    color: "white",
-    backgroundColor: "#2196F3",
-    borderRadius: "350px 350px 350px 350px",
+  link: {
+    textDecoration: "none",
+    color: "inherit",
   },
 }));
 
@@ -173,191 +133,99 @@ export default function MiniDrawer() {
   };
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-          <IconButton color="inherit" className={classes.homeBtn}>
-            <HomeRoundedIcon fontSize="large" />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Mini variant drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
+    <Router>
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, {
+                [classes.hide]: open,
+              })}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Link to="/" className={classes.homeBtn}>
+              <IconButton color="inherit">
+                <HomeRoundedIcon fontSize="large" />
+              </IconButton>
+            </Link>
+            <Typography variant="h6" noWrap>
+              Mini variant drawer
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          <Link to="/cv">
-            <ListItem button key="CV">
-              <ListItemIcon>
-                <AssignmentIndIcon />
-              </ListItemIcon>
-              <ListItemText primary="Curriculum Vitae" />
-            </ListItem>
-          </Link>
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }),
+          }}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            <Link to="/cv" className={classes.link}>
+              <ListItem button key="CV">
+                <ListItemIcon>
+                  <AssignmentIndIcon />
+                </ListItemIcon>
+                <ListItemText primary="Curriculum Vitae" />
+              </ListItem>
+            </Link>
 
-          <ListItem button key="Downolad">
-            <ListItemIcon>
-              <GetAppIcon />
-            </ListItemIcon>
-            <ListItemText primary="Download CV" />
-          </ListItem>
+            <Link to="/download" className={classes.link}>
+              <ListItem button key="Downolad">
+                <ListItemIcon>
+                  <GetAppIcon />
+                </ListItemIcon>
+                <ListItemText primary="Download CV" />
+              </ListItem>
+            </Link>
 
-          <ListItem button key="Mail">
-            <ListItemIcon>
-              <MailIcon />
-            </ListItemIcon>
-            <ListItemText primary="Send email" />
-          </ListItem>
-        </List>
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Card className={classes.card}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              alt="Contemplative Reptile"
-              height="200"
-              image={noAvatar}
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                Alexey Karpina
-              </Typography>
-              <hr />
-              <List>
-                <ListItem key="Specialty">
-                  <ListItemIcon>
-                    <WorkOutlineRoundedIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Front-End Developer" />
-                </ListItem>
-                <ListItem key="Home">
-                  <ListItemIcon>
-                    <HomeRoundedIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Kyiv, Ukraine" />
-                </ListItem>
-                <ListItem key="Mail">
-                  <ListItemIcon>
-                    <MailOutlineRoundedIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="alexey.karpina@gmail.com" />
-                </ListItem>
-                <ListItem key="Phone">
-                  <ListItemIcon>
-                    <LocalPhoneRoundedIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="+380990154102" />
-                </ListItem>
-              </List>
-              <hr />
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="h2"
-                className={classes.skillTitle}
-              >
-                <ReorderRoundedIcon
-                  fontSize="large"
-                  className={classes.titleIcon}
-                />{" "}
-                Skills
-              </Typography>
-              <List className>
-                <ListItem key="html">
-                  <ListItemIcon>
-                    <BeenhereIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="HTML5" />
-                </ListItem>
-                <ListItem key="css">
-                  <ListItemIcon>
-                    <BeenhereIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="CSS3" />
-                </ListItem>
-                <ListItem key="javascript">
-                  <ListItemIcon>
-                    <BeenhereIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="JS" />
-                </ListItem>
-              </List>
-              <hr />
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="h2"
-                className={classes.skillTitle}
-              >
-                <LanguageIcon fontSize="large" className={classes.titleIcon} />{" "}
-                Languages
-              </Typography>
-              <List>
-                <ListItem key="eng" className={classes.skillsItem}>
-                  <ListItemText primary="English" />
-                  <div className={classes.container}>
-                    <div className={classes.skillEnglish}>60%</div>
-                  </div>
-                </ListItem>
-                <ListItem key="ukr" className={classes.skillsItem}>
-                  <ListItemText primary="Ukrainian" />
-                  <div className={classes.container}>
-                    <div className={classes.skillUkrainian}>100%</div>
-                  </div>
-                </ListItem>
-                <ListItem key="rus" className={classes.skillsItem}>
-                  <ListItemText primary="Russian" />
-                  <div className={classes.container}>
-                    <div className={classes.skillRussian}>100%</div>
-                  </div>
-                </ListItem>
-              </List>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </main>
-    </div>
+            <Link to="/mail" className={classes.link}>
+              <ListItem button key="Mail">
+                <ListItemIcon>
+                  <MailIcon />
+                </ListItemIcon>
+                <ListItemText primary="Send email" />
+              </ListItem>
+            </Link>
+          </List>
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Switch>
+
+            <Route path="/" component={Home} exact />
+
+            <Route path="/cv" component={CV} />
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 }

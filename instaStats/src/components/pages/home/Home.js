@@ -1,27 +1,29 @@
 import React, { useEffect } from "react";
-// import "./Home.css";
+import "./Home.css";
 
-const Home = () => {
+export default function Home() {
+  useEffect(() => {
+    function startTimer() {
+      const countDownDate = new Date("Jan 5, 2022, 15:37:25").getTime();
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
 
-  // Нужно исправить ошибку с преждевременным изменением элемента до того как прогрузиться
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // const countDownDate = new Date("Jan 5, 2022, 15:37:25").getTime();
-  //   setInterval(() => {
-  //     const now = new Date().getTime();
-  //     const distance = countDownDate - now;
-
-  //     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  //     const hours = Math.floor(
-  //       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //     );
-  //     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  //     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  //     document.getElementById(
-  //       "demo"
-  //     ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s `;
-  //   }, 1000);
-
+      document.getElementById(
+        "demo"
+      ).innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s `;
+    }
+    const timer = setInterval(startTimer, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
     <div className="bigimg">
@@ -38,6 +40,4 @@ const Home = () => {
       </div>
     </div>
   );
-};
-
-export default Home();
+}
