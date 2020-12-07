@@ -1,4 +1,5 @@
 import React from "react";
+import { Page, Document } from "@react-pdf/renderer";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -22,12 +23,16 @@ export default function CV() {
   const classes = useStyles();
 
   return (
-    <div className={classes.cvContainer}>
-      <Info />
-      <div>
-        <Work />
-        <Education />
-      </div>
-    </div>
+    <Document>
+      <Page size="A4">
+        <div className={classes.cvContainer}>
+          <Info />
+          <div>
+            <Work />
+            <Education />
+          </div>
+        </div>
+      </Page>
+    </Document>
   );
 }

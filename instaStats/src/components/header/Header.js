@@ -19,18 +19,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import GetAppIcon from "@material-ui/icons/GetApp";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import WorkOutlineRoundedIcon from "@material-ui/icons/WorkOutlineRounded";
-import MailOutlineRoundedIcon from "@material-ui/icons/MailOutlineRounded";
-import LocalPhoneRoundedIcon from "@material-ui/icons/LocalPhoneRounded";
-import ReorderRoundedIcon from "@material-ui/icons/ReorderRounded";
-import LanguageIcon from "@material-ui/icons/Language";
-import BeenhereIcon from "@material-ui/icons/Beenhere";
 
-import noAvatar from "../../images/no-avatar.png";
 
 import {
   BrowserRouter as Router,
@@ -41,6 +30,8 @@ import {
 } from "react-router-dom";
 
 import CV from "../pages/cv/CV";
+
+import DownloadCV from "../pages/cv/downloadCV";
 
 import Home from "../pages/home/Home";
 
@@ -108,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
   },
   homeBtn: {
     marginRight: "50px",
-    color: '#ffffff',
+    color: "#ffffff",
   },
   card: {
     maxWidth: 345,
@@ -219,10 +210,12 @@ export default function MiniDrawer() {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-
             <Route path="/" component={Home} exact />
 
             <Route path="/cv" component={CV} />
+
+            <Route path="/download" component={DownloadCV} />
+
           </Switch>
         </main>
       </div>
