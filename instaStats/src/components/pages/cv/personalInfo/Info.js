@@ -70,6 +70,16 @@ const useStyles = makeStyles({
   titleIcon: {
     marginRight: "25px",
   },
+  skillList: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  skillItem: {
+    width: "50%",
+  },
+  skillIcon: {
+    minWidth: "30px",
+  },
 });
 
 export default function Info() {
@@ -83,7 +93,7 @@ export default function Info() {
           alt="Photo"
           height="200"
           image={noAvatar}
-          title="Contemplative Reptile"
+          title="Profile Photo"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -129,24 +139,72 @@ export default function Info() {
             />{" "}
             Skills
           </Typography>
-          <List className>
-            <ListItem key="html">
-              <ListItemIcon>
+          <List className={classes.skillList}>
+            <ListItem key="html" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
                 <BeenhereIcon />
               </ListItemIcon>
               <ListItemText primary="HTML5" />
             </ListItem>
-            <ListItem key="css">
-              <ListItemIcon>
+            <ListItem key="css" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
                 <BeenhereIcon />
               </ListItemIcon>
               <ListItemText primary="CSS3" />
             </ListItem>
-            <ListItem key="javascript">
-              <ListItemIcon>
+            <ListItem key="sass" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="SASS" />
+            </ListItem>
+            <ListItem key="javascript" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
                 <BeenhereIcon />
               </ListItemIcon>
               <ListItemText primary="JS" />
+            </ListItem>
+            <ListItem key="react-redux" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="React/Redux" />
+            </ListItem>
+            <ListItem key="webpack" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="Webpack" />
+            </ListItem>
+            <ListItem key="gulp" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="Gulp" />
+            </ListItem>
+            <ListItem key="bootstrap" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="Bootstrap" />
+            </ListItem>
+            <ListItem key="m-ui" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="Material-ui" />
+            </ListItem>
+            <ListItem key="git" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="Git" />
+            </ListItem>
+            <ListItem key="ps" className={classes.skillItem}>
+              <ListItemIcon className={classes.skillIcon}>
+                <BeenhereIcon />
+              </ListItemIcon>
+              <ListItemText primary="Photoshop" />
             </ListItem>
           </List>
           <hr />

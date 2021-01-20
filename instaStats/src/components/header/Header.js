@@ -35,6 +35,8 @@ import DownloadCV from "../pages/cv/downloadCV";
 
 import Home from "../pages/home/Home";
 
+import Waxom from '../pages/waxom/Waxom';
+
 const drawerWidth = 340;
 
 const useStyles = makeStyles((theme) => ({
@@ -96,6 +98,8 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    marginBottom: "20px",
+    boxShadow: "0px 0px 10px 0px #000000",
   },
   homeBtn: {
     marginRight: "50px",
@@ -205,6 +209,14 @@ export default function MiniDrawer() {
                 <ListItemText primary="Send email" />
               </ListItem>
             </Link>
+            <Link to="/waxom" className={classes.link}>
+              <ListItem button key="waxom">
+                <ListItemIcon>
+                  <MailIcon />
+                </ListItemIcon>
+                <ListItemText primary="Waxom Home Page" />
+              </ListItem>
+            </Link>
           </List>
         </Drawer>
         <main className={classes.content}>
@@ -215,6 +227,8 @@ export default function MiniDrawer() {
             <Route path="/cv" component={CV} />
 
             <Route path="/download" component={DownloadCV} />
+
+            <Route path="/waxom" component={Waxom} />
 
           </Switch>
         </main>
